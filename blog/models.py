@@ -16,4 +16,5 @@ class Post(models.Model):
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
+    experts = models.TextField(max_length=200, blank=True)
     
