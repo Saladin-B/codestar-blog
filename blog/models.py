@@ -2,12 +2,10 @@ from django.db import models
 from django.contrib.auth.models import User
 from .models import Post
 
-# Register your models here.
-admin.site.register(Post)
-
 STATUS = ((0, "Draft"), (1, "Published"))
 
-
+# Register your models here.
+admin.site.register(Post)
 
 # Create your models here.
 class Post(models.Model):
