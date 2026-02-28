@@ -17,10 +17,16 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(max_length=200, blank=True)
     updated_on = models.DateTimeField(auto_now=True)
+
+    def __str__(self) -> str:
+        return self.title
     
-    class Comments(models.Model):
+    class Comment(models.Model):
         post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
         author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="commenter")
         body = models.TextField()
         approved = models.BooleanField(default=False)
         created_on = models.DateTimeField(auto_now_add=True)
+        
+        def __str__(self) -> str:
+            return f"Comment on {self.post}"
