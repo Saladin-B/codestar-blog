@@ -18,6 +18,9 @@ class Post(models.Model):
     excerpt = models.TextField(max_length=200, blank=True)
     updated_on = models.DateTimeField(auto_now=True, null=True)
 
+    class Meta:
+        ordering = ["-created_on"]
+
     def __str__(self) -> str:
         return self.title
     
